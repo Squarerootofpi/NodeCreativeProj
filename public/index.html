@@ -2,74 +2,24 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>How To Be Happy</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="stylesheets/style.css">
-
+  <meta charset="utf-8" />
+  <title>Vue REST</title>
 </head>
 
 <body>
-    <div id="app">
-        <h1>Select a City</h1>
-        <form v-on:keyup.prevent="fetchREST">
-          <input type="text" v-model="prefix">
-          <input type="submit" value="Clear">
-        </form>
-        <ul>
-          <li v-for="item in cities">
-            {{ item.name }}
-          </li>
-        </ul>
-      </div>
-      <div id="appOwl">
-        <h1>Definitions:</h1>
-        <form v-on:submit.prevent="fetchOwlREST">
-          <input type="text" v-model="prefix">
-          <input type="submit" value="Submit">
-        </form>
-        <div v-if="this.validWord">
-          <!-- <h2>Definitions:</h2> -->
-          <div v-for="defs in definitions">
-            <h4>Definition</h4>
-            <p><b>{{ submittedPrefix }}</b> is a {{ defs.type }}. {{ defs.defenition }}</p>
-            <h4>Example:</h4>
-            <p>{{ defs.example }}</p>
-          </div>
-        </div>
-        <div v-else>
-          <h2>Not a word. </h2>
-        </div>
-        <!-- 
-          <div v-for="comment in comments[number]">
-            <hr>
-            <p>{{comment.text}}</p>
-            <p><i>-- {{comment.author}}</i></p>
-            <p>{{comment.date}}</p>
-          </div>
-         -->
-    
-    
-        <!-- <ul>
-          <li v-for="item in cities">
-            {{ item.name }}
-          </li>
-        </ul> -->
-      </div>
-      <footer class="footer mt-auto py-3">
-        <div class="container">
-          <span class=""><a href="">Github | Joseph Steed</a></span>
-        </div>
-      </footer>
-      <br>
-      <br>
-      <br>
-      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
-      <script src="javascripts/script.js"></script>
+  <div id="app">
+    <h1>Select a City</h1>
+    <form v-on:keyup.prevent="fetchREST">
+      <input type="text" v-model="prefix">
+    </form>
+    <ul>
+      <li v-for="item in cities">
+        {{ item.name }}
+      </li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+  <script src="javascripts/script.js"></script>
 </body>
 
 </html>
