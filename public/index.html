@@ -3,19 +3,21 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Vue REST</title>
+    <title>Dad Jokes</title>
 </head>
 
 <body>
     <div id="app">
-        <h1>Select a City</h1>
+        <h1>Dad Joke Generator</h1>
         <form v-on:submit.prevent="getJoke">
-            <input type="number" v-model="index">
-            <input type="submit" value="Joke Number">
+            Enter a number between 0-{{ numJokes - 1}} <br>
+            <input type="number" v-model="index" :max="numJokes - 1" :min="0">
+            <button>Enter</button>
             <!-- v-model="prefix" -->
         </form>
+        <br>
         <form>
-            <button @click="getRand">Random</button>
+            <button @click.prevent="getRand">Random</button>
         </form>
 
         <div v-if="currJoke">

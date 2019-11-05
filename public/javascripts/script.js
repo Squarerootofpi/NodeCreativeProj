@@ -6,6 +6,7 @@ var app = new Vue({
     index: '',
     numJokes: 0,
     currJoke: '',
+    index: '',
   },
   created() {
     this.fetchREST()
@@ -13,39 +14,26 @@ var app = new Vue({
   methods: {
     async fetchREST() {
       console.log("In Fetch ");
-      var url = "http://cs.creatorof.jsearch.org:4201/getjokes";
-      // let response = await request.get(url);
-      // let json = JSON.parse(response);
-      // console.log("URL " + url);
-      // console.log("json ", json);
+      var url = "http://jtullis.com:4201/getjokes";
       fetch(url)
         .then((data) => {
           return (data.json());
         })
         .then((jokelist) => {
-          console.log("jokelist");
-          console.log(jokelist);
           this.jokes = jokelist;
           this.numJokes = jokelist.length;
         });
     },
-    getJoke(index) {
-      if (index > this.jokes.length -1 )
-      {
+    getJoke() {
+      if (this.index > this.jokes.length - 1 ) {
         console.log("Error");
         throw error;
       }
-      if (index === '')
-      {
-        this.getRand();
-      }
-      this.currJoke = this.jokes[index];
+      this.currJoke = this.jokes[this.index];
     },
     getRand() {
-      let randJokeNum = Math.floor(Math.random() * jokes.length);
-      this.currJoke = this.this.getJoke(randJokeNum);
-      console.log(currJoke);
-
+      this.index = Math.floor(Math.random() * this.jokes.length);
+      this.currJoke = this.jokes[this.index];
     },
   },
 });
