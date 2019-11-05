@@ -16,9 +16,8 @@ router.get('/getjokes', function(req, res, next) {
         for (var i = 0; i < jokes.length; i++) {
             console.log(jokes[i]);
         }
+        res.status(200).json(jokes);
     });
-    
-    
 });
 
 module.exports = router;
