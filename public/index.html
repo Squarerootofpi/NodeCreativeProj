@@ -2,24 +2,34 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <title>Vue REST</title>
+    <meta charset="utf-8" />
+    <title>Vue REST</title>
 </head>
 
 <body>
-  <div id="app">
-    <h1>Select a City</h1>
-    <form v-on:keyup.prevent="fetchREST">
-      <input type="text" v-model="prefix">
-    </form>
-    <ul>
-      <li v-for="item in cities">
-        {{ item.name }}
-      </li>
-    </ul>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
-  <script src="javascripts/script.js"></script>
+    <div id="app">
+        <h1>Select a City</h1>
+        <form v-on:submit.prevent="getJoke">
+            <input type="number" v-model="index">
+            <input type="submit" value="Joke Number">
+            <!-- v-model="prefix" -->
+        </form>
+        <form>
+            <button @click="getRand">Random</button>
+        </form>
+
+        <div v-if="currJoke">
+            <h3>{{ currJoke }}</h3>
+        </div>
+        <div v-else>
+            <h3>No jokes yet</h3>
+        </div>
+        
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+    <script src="javascripts/script.js"></script>
 </body>
 
 </html>
