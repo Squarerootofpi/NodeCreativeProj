@@ -13,7 +13,7 @@
     <div id="app">
         <h1>Dad Joke Generator</h1>
         <form v-on:submit.prevent="getJoke">
-            Enter a number between 0-{{ numJokes - 1}} <br>
+            Enter a number between 0-{{ numJokes - 1}} to generate a Dad Joke<br>
             <input type="number" v-model="index" :max="numJokes - 1" :min="0">
             <button>Enter</button>
             <!-- v-model="prefix" -->
@@ -22,15 +22,10 @@
         <form>
             <button @click.prevent="getRand">Random</button>
         </form>
-
+        <br>
         <div v-if="currJoke">
             <h3>{{ currJoke }}</h3>
         </div>
-        <div v-else>
-            <h3>No jokes yet</h3>
-        </div>
-
-
 
     </div>
     <footer class="footer mt-auto py-3">

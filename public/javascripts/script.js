@@ -15,7 +15,7 @@ var app = new Vue({
     async fetchREST() {
       console.log("In Fetch ");
       //Whichever site is hosting it, will have to comment out the other person's, etc.
-      var url = "http://cs.creatorof.jsearch.org:4201/getjokes";
+      var url = "http://jtullis.com:4201/getjokes";
       //var url = "http://jtullis.com:4201/getjokes";
       fetch(url)
         .then((data) => {
